@@ -1,0 +1,594 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>UCR Project</title>
+    <!--
+
+    Known Template
+
+    https://templatemo.com/tm-516-known
+
+    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    
+
+</head>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
+
+            <span class="spinner-rotate"></span>
+
+        </div>
+    </section>
+
+
+    <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+
+                <!-- lOGO TEXT HERE -->
+                <a href="#" class="navbar-brand"></a>
+                <img src="\images\ucr.png" alt="Logo" style="height: 100px; width: auto; margin-right: 10px;">
+
+            </div>
+
+            <!-- MENU LINKS -->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li><a href="#top" class="smoothScroll">Home</a></li>
+                    <li><a href="#profile" class="smoothScroll">Profile</a></li>
+                    <li><a href="#news" class="smoothScroll">News</a></li>
+                    <li><a href="#courses" class="smoothScroll">Courses</a></li>
+                    <li><a href="#schedule" class="smoothScroll">Schedule</a></li>
+                    <li><a href="#appointment" class="smoothScroll">Appointment</a></li>
+                    <li><a href="#consult" class="smoothScroll">Questions</a></li>
+                </ul>
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- HOME -->
+    <section id="home">
+        <div class="row">
+
+            <div class="owl-carousel owl-theme home-slider">
+                <div class="item item-first">
+                    <div class="caption">
+                        <div class="container">
+                            <div class="col-md-6 col-sm-12">
+                                <h1>
+                                    Welcome
+                                </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+
+
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+
+            <!-- Logo Container -->
+            <div class="logo-container">
+                <img src="\images\ucr.png" alt="Logo" class="logo">
+            </div>
+
+            <!-- Login Form (default view) -->
+            <div class="form-container" id="loginFormContainer">
+                <h2>Iniciar sesión</h2>
+                <form id="loginForm">
+                    <input type="text" id="username" placeholder="Usuario" required>
+                    <br />
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <br />
+                    <button type="submit" id="loginButton">Iniciar sesión</button>
+                </form>
+            </div>
+
+            <div class="form-container" id="registerFormContainer" style="display: none;">
+                <h2>Registrarse</h2>
+                <form id="registerForm">
+                    <input type="text" id="name" placeholder="Nombre" required maxlength="50">
+                    <br />
+                    <input type="text" id="lastName" placeholder="Apellido" required maxlength="50">
+                    <br />
+                    <input type="email" id="email" placeholder="Correo electrónico" required maxlength="50">
+                    <br />
+                    <input type="text" id="userName" placeholder="Usuario" required maxlength="50">
+                    <br />
+                    <input type="password" id="password" placeholder="Contraseña" required maxlength="50">
+                    <br />
+                    <button type="submit" id="registerButton">Registrarse</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- PROFILE -->
+    <section id="profile">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-offset-1 col-md-4 col-sm-12">
+                    <div class="profile-card">
+                        <div class="profile-photo">
+                            <img id="professor-photo" src="/images/pp.jpg" alt="Professor Photo">
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="professor-name">Loading...</h2>
+                          
+                            <p id="professor-email">Loading...</p>
+                           
+                            <p id="professor-description">Loading...</p>
+                         
+                            <button onclick="openModal1()">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE EDICIÓN MEJORADO -->
+    <div id="edit-professor-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md transform transition-all scale-100">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6 text-center">Edit Profile</h3>
+            <form id="professor-form" class="space-y-4">
+
+                <input type="hidden" id="professor-id">
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Name</label>
+                    <input id="new-professor-name" type="text" class="w-full p-3 border rounded-lg focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Last Name</label>
+                    <input id="new-professor-lastname" type="text" class="w-full p-3 border rounded-lg focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Email</label>
+                    <input id="new-professor-email" type="email" class="w-full p-3 border rounded-lg focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Username</label>
+                    <input id="new-professor-username" type="text" class="w-full p-3 border rounded-lg focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Status</label>
+                    <input id="new-status" type="text" class="w-full p-3 border rounded-lg focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Profile URL</label>
+                    <input id="professor-profile-url" type="url" class="w-full p-3 border rounded-lg focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Interests</label>
+                    <textarea id="new-professor-description" class="w-full p-3 border rounded-lg focus:ring-blue-500"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700">Upload Photo</label>
+                    <input id="new-professor-photo" type="file" accept="image/*" class="w-full p-3 border rounded-lg bg-white text-gray-700">
+                </div>
+
+                <div class="flex justify-between mt-6">
+                    <button type="button" onclick="closeModal1()" class="px-5 py-2 text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-5 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+   
+    <!-- NEWS -->
+
+    <!-- Sección de Noticias -->
+<section id="news" class="news-container">
+    <h2 class="news-title">News</h2>
+    <div class="news-scroll">
+        <!-- Las noticias se insertarán dinámicamente aquí -->
+    </div>
+</section>
+
+<!-- Modal para los Comentarios -->
+<div id="commentsModal" class="modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Comments</h3>
+            <div id="commentsList"></div>
+             <!-- Campo para agregar comentarios -->
+            <textarea id="newComment" placeholder="Escribe tu comentario aquí..." rows="3"></textarea>
+            <button id="submitComment">New Comment</button>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- COURSE -->
+
+    <section id="courses">
+        <div class="container">
+            <h2>My Courses</h2>
+            <div class="row" id="courses-list">
+                <!-- Los cursos se agregarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- SCHEDULE -->
+    <section id="schedule">
+        <div class="container">
+            <h2 class="text-center">Schedule</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Hora</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-list">
+                        <!-- Los horarios se agregarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- APPOINTMENTS -->
+
+    <section id="appointment">
+        <div class="container">
+            <h2 class="text-center">Professor's Appointments</h2>
+
+            <div class="row">
+                <!-- Citas asignadas -->
+                <div class="col-md-6">
+                    <h3 class="text-center">Scheduled Appointments</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scheduled-appointments"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Solicitudes de citas -->
+                <div class="col-md-6">
+                    <h3 class="text-center">Appointment Requests</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Comments</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="appointment-requests"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para aceptar/rechazar citas -->
+    <div id="decision-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDecisionModal()">&times;</span>
+            <h3>Provide a Reason</h3>
+            <p><strong>Student:</strong> <span id="modal-student"></span></p>
+            <textarea id="decision-message" class="form-control" placeholder="Enter your reason..."></textarea>
+            <button class="btn-accept" onclick="sendDecision('accepted')">Aceptar</button>
+            <button class="btn-reject" onclick="sendDecision('rejected')">Rechazar</button>
+            <button class="btn-cancel" onclick="closeDecisionModal()">Cancelar</button>
+        </div>
+    </div>
+
+
+    <style>
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Por defecto, el modal está oculto */
+            position: fixed;
+            z-index: 1; /* Se asegura de que el modal esté por encima de todo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Si el contenido es grande, permite el desplazamiento */
+            background-color: rgb(0,0,0); /* Fondo negro con opacidad */
+            background-color: rgba(0,0,0,0.4); /* Fondo con opacidad */
+            padding-top: 100px; /* Espacio desde arriba */
+        }
+
+        /* Contenido del modal */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* Centrado en la pantalla */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 100%; /* Puedes ajustar el ancho del modal */
+            max-width: 980px; /* Máximo ancho del modal */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para el modal */
+        }
+
+        /* Estilo para el botón de cerrar */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Botón de cancelar */
+        .btn-cancel {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-cancel:hover {
+            background-color: #d32f2f;
+        }
+
+        .btn-submit {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            .btn-submit:hover {
+            background-color: green;
+            }
+
+        /* Estilo del textarea */
+        #decision-message {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+
+
+
+
+    <!-- CONSULT -->
+
+    <section id="consult">
+        <div class="container">
+            <h2 class="text-center">Student Questions</h2>
+
+            <div class="row">
+                <!-- Consultas públicas -->
+                <div class="col-md-6">
+                    <h3 class="text-center">Public</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Author</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Course</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="public-consultations">
+                                <!-- Las consultas públicas se cargarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Consultas privadas -->
+                <div class="col-md-6">
+                    <h3 class="text-center">Private</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Author</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th>Course</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="private-consultations">
+                                <!-- Las consultas privadas se cargarán aquí -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal para responder consultas -->
+    <div id="response-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Reply to Consultation</h3>
+            <p id="consult-description"></p>
+            <textarea id="response-text" class="form-control" placeholder="Write your response..."></textarea>
+            <button class="submit-btn" id="submit-response">Submit Response</button>
+        </div>
+    </div>
+    <!-- Modal para ver respuestas -->
+    <div id="replies-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Replies to Consultation</h3>
+            <div id="replies-list">
+                <!-- Las respuestas se cargarán aquí -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor de mensajes de error -->
+    <div id="error-message" class="error-message" style="display: none;">
+        <p id="error-text"></p>
+        <button onclick="closeErrorMessage()">X</button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="footer-info">
+
+
+                        <ul class="social-icon">
+                            <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-instagram"></a></li>
+                        </ul>
+
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 2025 SCN Solutions</p>
+
+                            @*   <p>Design: TemplateMo</p> *@
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="footer-info">
+                        <div class="section-title">
+                            <h2>Contact Info</h2>
+                        </div>
+                        <address>
+                            <p>+65 2244 1100, +66 1800 1100</p>
+                            <p><a href="mailto:youremail.co">scn@youremail.co</a></p>
+                        </address>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <div class="footer-info newsletter-form">
+                        <div class="section-title">
+                            <h2>Newsletter Signup</h2>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/course.js"></script>
+    <script src="js/scheduleProfessor.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/appointment.js"></script>
+    <script src="js/consult.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+</body>
+</html>
