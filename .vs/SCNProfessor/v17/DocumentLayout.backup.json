@@ -1,0 +1,96 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|c:\\users\\sofia\\documents\\github\\scn-frontendprofessor\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|solutionrelative:pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|c:\\users\\sofia\\documents\\github\\scn-frontendprofessor\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|solutionrelative:controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|c:\\users\\sofia\\documents\\github\\scn-frontendprofessor\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|c:\\users\\sofia\\documents\\github\\scn-frontendprofessor\\controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EA9C49-B2BA-48CE-B057-2DE615D8187C}|SCNProfessor.csproj|solutionrelative:controllers\\professorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CourseController.cs",
+              "ToolTip": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "Controllers\\CourseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T05:51:21.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwCsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-24T02:35:53.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProfessorController.cs",
+              "DocumentMoniker": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\Controllers\\ProfessorController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProfessorController.cs",
+              "ToolTip": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\Controllers\\ProfessorController.cs",
+              "RelativeToolTip": "Controllers\\ProfessorController.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAwwGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T02:33:56.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAALwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-23T22:21:25.198Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

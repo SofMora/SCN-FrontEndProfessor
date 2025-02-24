@@ -2248,11 +2248,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sofia\\Documents\\NUEVO PROYECTO PROFESOR\\SCNProfessor\\SCNProfessor.csproj",
+      "projectUniqueName": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\SCNProfessor.csproj",
       "projectName": "SCNProfessor",
-      "projectPath": "C:\\Users\\sofia\\Documents\\NUEVO PROYECTO PROFESOR\\SCNProfessor\\SCNProfessor.csproj",
+      "projectPath": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\SCNProfessor.csproj",
       "packagesPath": "C:\\Users\\sofia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sofia\\Documents\\NUEVO PROYECTO PROFESOR\\SCNProfessor\\obj\\",
+      "outputPath": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sofia\\AppData\\Roaming\\NuGet\\NuGet.Config",
