@@ -210,61 +210,6 @@ function LoadProfessorData(id) {
     });
 }
 
-//function LoadProfessorData(id) {
-//    $.ajax({
-//        url: `https://localhost:44388/api/Professor/GetProfessorById/${id}`,  // Llama a tu API con el ID del profesor
-//        type: "GET",
-//        contentType: "application/json;charset=utf-8",
-//        dataType: "json",
-//        success: function (result) {
-//            // Verifica si se recibió la respuesta correctamente
-//            if (result) {
-//                // Nombre completo del profesor
-//                $('#professor-name').text(result.name || 'No name available');
-
-//                 $('#professor-lastname').text(result.lastname || 'No lastname available');
-
-//                // Correo electrónico del profesor
-//                $('#professor-email').text(result.email || 'No email available');
-
-//                // Nombre de usuario del profesor
-//                $('#professor-username').text(result.userName || 'No username available');
-
-//                // Departamento o estatus del profesor
-//                $('#professor-department').text(result.statusProfessor ? 'Active' : 'Inactive');
-
-//                // Descripción del profesor
-//                $('#professor-description').text(result.description || 'No description available');
-
-//                // Enlace social (si existe)
-//                if (result.socialLink) {
-//                    $('#professor-social').text('Visit Profile');
-//                    $('#professor-social').attr('href', result.socialLink);
-//                } else {
-//                    $('#professor-social').text('No social profile available');
-//                    $('#professor-social').attr('href', '#');
-//                }
-
-//                // Foto del profesor (si no hay foto, coloca una por defecto)
-//                if (result.photo) {
-//                    // Convierte el array de bytes a una cadena base64
-//                    const base64String = btoa(String.fromCharCode(...new Uint8Array(result.photo)));
-//                    // Establece la fuente de la imagen
-//                    $('#professor-photo').attr('src', `data:image/jpeg;base64,${base64String}`);
-//                } else {
-//                    $('#professor-photo').attr('src', '/images/tst-image1.jpg');
-//                }
-//            } else {
-//                console.error('No result data received.');
-//            }
-//        },
-//        error: function (errorMessage) {
-//            console.error("Error loading professor data: ", errorMessage);
-//        }
-//    });
-//}
-
-
 // Función para abrir el modal de edición
 function openModal1() {
     var professorId = localStorage.getItem('professorId');

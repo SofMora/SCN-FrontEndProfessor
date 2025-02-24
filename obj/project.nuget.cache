@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2l61e3oZHPQ=",
+  "dgSpecHash": "steK6XRcv9s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\sofia\\Documents\\NUEVO PROYECTO PROFESOR\\SCNProfessor\\SCNProfessor.csproj",
+  "projectFilePath": "C:\\Users\\sofia\\Documents\\GitHub\\SCN-FrontEndProfessor\\SCNProfessor.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sofia\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\sofia\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
