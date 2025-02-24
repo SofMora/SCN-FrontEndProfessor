@@ -258,28 +258,44 @@ function saveChanges1() {
     sendProfessorData(updatedProfessor);
 }
 
-
-    function sendProfessorData(updatedProfessor) {
-        $.ajax({
-            url: `https://localhost:44388/api/Professor/UpdateProfessor/${updatedProfessor.id}`,
-            type: "PUT",
-            data: JSON.stringify(updatedProfessor),
-            contentType: "application/json;charset=utf-8",
-            dataType: "json",
-            success: function (result) {
-                console.log(result);  // Revisa lo que se recibe en la respuesta
-                if (result.success) {
-                    alert('Perfil actualizado correctamente');
+function sendProfessorData(updatedProfessor) {
+    $.ajax({
+        url: `https://localhost:44388/api/Professor/UpdateProfessor/${updatedProfessor.id}`,
+        type: "PUT",
+        data: JSON.stringify(updatedProfessor),
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);  // Revisa lo que se recibe en la respuesta
+            if (result.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Perfil actualizado',
+                    text: 'El perfil se ha actualizado correctamente.',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    // Aquí ejecutas lo que necesites tras cerrar el popup
                     closeModal1();
-                } else {
-                    alert('No se pudo actualizar el perfil');
-                }
-            },
-            error: function (errorMessage) {
-                console.error('Error al actualizar el perfil: ', errorMessage.responseText);
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'No se pudo actualizar el perfil.',
+                });
             }
-        });
-    }
+        },
+        error: function (errorMessage) {
+            console.error('Error al actualizar el perfil: ', errorMessage.responseText);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error al actualizar',
+                text: 'Ocurrió un problema al actualizar el perfil.',
+            });
+        }
+    });
+}
+
 
 
 // Mostrar vista previa de la foto seleccionada en el modal

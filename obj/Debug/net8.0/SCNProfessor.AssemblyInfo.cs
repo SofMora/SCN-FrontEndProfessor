@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SCNProfessor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1daf9162596116f7b7afc802ed12770e64f2734")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+235e0df7652c77fef8e53d132ba3fc4d9eab8ceb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SCNProfessor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SCNProfessor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

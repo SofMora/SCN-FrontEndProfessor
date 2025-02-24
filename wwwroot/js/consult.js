@@ -1,31 +1,33 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-    
     fetchConsultations();
 });
+
+function showMessage(message, type = 'success') {
+    Swal.fire({
+        icon: type === 'success' ? 'success' : 'error',
+        title: type === 'success' ? 'Éxito' : 'Error',
+        text: message
+    });
+}
 
 function submitResponse(consultId) {
     const responseText = document.getElementById("response-text").value.trim();
     if (!responseText) {
-        alert("Please enter a response.");
+        showMessage("Por favor ingrese una respuesta.", 'error');
         return;
     }
 
-    // Obtener la fecha actual en formato ISO (como lo espera la API)
     const dateComment = new Date().toISOString();
+    const author = 1;
 
-    // Asume que el ID del autor es el ID del usuario actual, puedes cambiar esto según tu sistema
-    const author = 1; // Reemplázalo con el ID del usuario actual si es necesario
-
-    // Preparar el cuerpo de la solicitud con los datos correctos
     const commentData = {
-        id: 0, // Si el ID debe ser 0 o generado por la base de datos
-        idConsult: consultId, // El ID de la consulta
-        descriptionComment: responseText, // El texto de la respuesta
-        author: author, // El ID del autor
-        dateComment: dateComment // Fecha de la respuesta
+        id: 0,
+        idConsult: consultId,
+        descriptionComment: responseText,
+        author: author,
+        dateComment: dateComment
     };
 
-    // Hacer la solicitud POST a la API
     fetch(`https://localhost:44388/api/CommentConsult/AddComment`, {
         method: "POST",
         headers: {
@@ -40,29 +42,28 @@ function submitResponse(consultId) {
             return res.json();
         })
         .then(() => {
-            alert("Response submitted successfully.");
+            showMessage("Respuesta enviada correctamente.");
             closeModal();
         })
         .catch((err) => {
-            console.error("Error submitting comment:", err);
-            alert(`Error: ${err.message}`);
+            console.error("Error al enviar el comentario:", err);
+            showMessage(`Error: ${err.message}`, 'error');
         });
 }
 
-// Obtener las consultas
 async function fetchConsultations() {
     try {
         const response = await fetch("https://localhost:44388/api/Consult/GetAllConsults");
-        if (!response.ok) throw new Error("Error fetching consultations");
+        if (!response.ok) throw new Error("Error al obtener las consultas");
 
         const consultations = await response.json();
         populateTables(consultations);
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error al obtener los datos:", error);
+        showMessage("No se pudieron cargar las consultas.", 'error');
     }
 }
 
-// Poblamos las tablas de consultas
 function populateTables(consultations) {
     const publicTable = document.getElementById("public-consultations");
     const privateTable = document.getElementById("private-consultations");
@@ -79,7 +80,7 @@ function populateTables(consultations) {
             <td>${consult.idCourse}</td>
             <td class="text-center">
                 <button class="btn btn-primary btn-sm" onclick="openModal(${consult.id}, '${encodeURIComponent(consult.descriptionConsult)}')">Reply</button>
-                <button class="btn btn-info btn-sm" onclick="viewReplies(${consult.id})">View Replies</button>
+                <button class="btn btn-info btn-sm" onclick="viewReplies(${consult.id})">View replies</button>
             </td>
         `;
 
@@ -91,13 +92,10 @@ function populateTables(consultations) {
     });
 }
 
-
-// Abre el modal para responder la consulta
 function openModal(id, description) {
     const modal = document.getElementById("response-modal");
     const responseText = document.getElementById("response-text");
 
-    // Limpia el textarea antes de abrir el modal
     responseText.value = "";
 
     document.getElementById("consult-description").innerText = description;
@@ -108,7 +106,6 @@ function openModal(id, description) {
     };
 }
 
-// Mostrar los comentarios de una consulta
 function viewReplies(consultId) {
     fetch(`https://localhost:44388/api/CommentConsult/GetReplies/${consultId}`)
         .then(response => response.json())
@@ -116,7 +113,12 @@ function viewReplies(consultId) {
             const repliesModal = document.getElementById("replies-modal");
             const repliesList = document.getElementById("replies-list");
 
-            repliesList.innerHTML = ""; // Limpiar respuestas anteriores
+            repliesList.innerHTML = "";
+
+            if (comments.length === 0) {
+                showMessage("No hay respuestas disponibles.", 'info');
+                return;
+            }
 
             comments.forEach(comment => {
                 const replyItem = document.createElement("div");
@@ -129,16 +131,14 @@ function viewReplies(consultId) {
                 repliesList.appendChild(replyItem);
             });
 
-            repliesModal.style.display = "block"; // Mostrar el modal con las respuestas
+            repliesModal.style.display = "block";
         })
         .catch(error => {
-            console.error("Error fetching replies:", error);
-            alert("No hay respuestas.");
+            console.error("Error al obtener respuestas:", error);
+            showMessage("No existen respuestas.", 'error');
         });
 }
 
-
-// Cerrar modal de respuestas
 document.querySelectorAll(".close").forEach((closeBtn) => {
     closeBtn.addEventListener("click", closeModal);
 });

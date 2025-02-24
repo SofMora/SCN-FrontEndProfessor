@@ -49,48 +49,6 @@ function loadAppointmentsByProfessor() {
 
 
 
-//document.addEventListener("DOMContentLoaded", function () {
-//    loadAllAppointments();
-//});
-
-//// Cargar todas las citas desde la API
-//function loadAllAppointments() {
-//    fetch("https://localhost:44388/api/Appointment/GetAllAppointments")
-//        .then(response => response.json())
-//        .then(data => {
-//            const scheduledTable = document.getElementById("scheduled-appointments");
-//            const requestsTable = document.getElementById("appointment-requests");
-
-//            scheduledTable.innerHTML = ""; // Limpiar tablas antes de agregar nuevas filas
-//            requestsTable.innerHTML = "";
-
-//            data.forEach(appointment => {
-//                const formattedDate = new Date(appointment.dateAppointment).toLocaleString();
-
-//                const row = `<tr>
-//                    <td>${appointment.idStudent}</td>
-//                    <td>${appointment.subjectAppointment}</td>
-//                    <td>${formattedDate}</td>
-//                    <td>${appointment.descriptionAppointment || "No description"}</td>
-//                    <td>${appointment.commentStatus || "No comments"}</td>
-//                    ${!appointment.statusAppointment ? `
-//                        <td>
-//                            <button class="btn btn-success" onclick="openDecisionModal(${appointment.id}, '${appointment.idStudent}')">✔</button>
-//                            <button class="btn btn-danger" onclick="openDecisionModal(${appointment.id}, '${appointment.idStudent}')">✖</button>
-//                        </td>` : ""
-//                    }
-//                </tr>`;
-
-//                if (appointment.statusAppointment) {
-//                    scheduledTable.innerHTML += row;
-//                } else {
-//                    requestsTable.innerHTML += row;
-//                }
-//            });
-//        })
-//        .catch(error => console.error('Error fetching data:', error));
-//}
-
 // Variables para rastrear la cita actual
 let currentAppointmentId = null;
 
@@ -101,6 +59,7 @@ function openDecisionModal(appointmentId, studentName) {
     document.getElementById("decision-modal").style.display = "block";
 }
 
+// Envía la decisión al backend
 // Envía la decisión al backend
 function sendDecision(status) {
     let reason = document.getElementById("decision-message").value.trim();
@@ -132,7 +91,7 @@ function sendDecision(status) {
         success: function () {
             Swal.fire("Éxito", "Estado actualizado correctamente", "success");
             closeDecisionModal();
-            loadAllAppointments(); // Recargar la lista de citas
+            loadAppointmentsByProfessor(); // Recargar la lista de citas del profesor
         },
         error: function (xhr) {
             console.error("Error en la petición AJAX:", xhr.responseText);

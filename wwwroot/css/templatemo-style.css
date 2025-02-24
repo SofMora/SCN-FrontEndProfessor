@@ -1429,3 +1429,84 @@ body {
 }
 
 
+/* Estilo para el modal de edición */
+#edit-professor-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    /* Contenedor del formulario */
+    #edit-professor-modal form {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px; /* Aumenté el max-width para que el formulario sea más amplio */
+    }
+
+    /* Campos de entrada de texto y textarea */
+    #edit-professor-modal input[type="text"],
+    #edit-professor-modal input[type="email"],
+    #edit-professor-modal input[type="url"],
+    #edit-professor-modal textarea,
+    #edit-professor-modal input[type="file"] {
+        width: 100%;
+        padding: 0.75rem; /* Ajusté el padding para que todo se vea más equilibrado */
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-sizing: border-box;
+        background: #f9f9f9;
+    }
+
+    /* Estilo específico para el campo de subida de fotos */
+    #edit-professor-modal input[type="file"] {
+        background: #f9f9f9; /* Mantengo un fondo claro para el campo de subida */
+    }
+
+    /* Botones de acción */
+    #edit-professor-modal button {
+        padding: 0.75rem 1.5rem; /* Hice los botones un poco más grandes para que sean más fáciles de hacer clic */
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+        #edit-professor-modal button[type="button"] {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        #edit-professor-modal button[type="submit"] {
+            background: #007bff;
+            color: #fff;
+        }
+
+        #edit-professor-modal button:hover {
+            opacity: 0.9;
+        }
+
+    /* Estilo para las etiquetas */
+    #edit-professor-modal label {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* Asegurarse de que todos los campos de texto y textarea sean del mismo tamaño */
+    #edit-professor-modal input[type="text"],
+    #edit-professor-modal input[type="email"],
+    #edit-professor-modal input[type="url"],
+    #edit-professor-modal textarea {
+        height: 40px; /* Asegura que todos los campos sean del mismo tamaño */
+    }
+
+    /* El textarea puede ser más grande para mayor comodidad */
+    #edit-professor-modal textarea {
+        height: 120px;
+        resize: vertical; /* Permite redimensionar el textarea de manera vertical */
+    }
