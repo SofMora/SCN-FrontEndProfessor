@@ -1,0 +1,29 @@
+
+trigger:
+- main
+
+pool:
+  name: frontend_pool
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/SCN-FrontEndProfessor'
+ 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    workingDirectory: '$(System.DefaultWorkingDirectory)/SCN-FrontEndProfessor'
+ 
+
+- task: AzureRmWebAppDeployment@5
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(59ef84d4-f523-4cee-9ef6-cce202b4bb53)'
+    appType: 'webApp'
+    WebAppName: 'SCN-FrontEndProfessor'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+  
