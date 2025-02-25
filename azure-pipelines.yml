@@ -18,7 +18,6 @@ steps:
     publishWebProjects: true
     workingDirectory: '$(System.DefaultWorkingDirectory)/SCN-FrontEndProfessor'
  
-
 - task: AzureRmWebAppDeployment@5
   inputs:
     ConnectionType: 'AzureRM'
@@ -26,4 +25,3 @@ steps:
     appType: 'webApp'
     WebAppName: 'SCN-FrontEndProfessor'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-  
